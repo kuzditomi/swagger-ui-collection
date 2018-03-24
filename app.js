@@ -1,7 +1,4 @@
-const SwaggerUI = require('swagger-ui')
+const ServiceConfig = require('./service-config');
+const MenuBuilder = require('./menu-builder');
 
-SwaggerUI({
-    url: "http://petstore.swagger.io/v2/swagger.json",
-    dom_id: '#main',
-});
-
+MenuBuilder.build(ServiceConfig);
