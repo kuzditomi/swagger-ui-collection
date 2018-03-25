@@ -1,16 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sportsbook API Descriptions</title>
-    <link href="node_modules/swagger-ui/dist/swagger-ui.css" rel="stylesheet" />
+    <title>ServiceDesk Service Swagger</title>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3.12.1/swagger-ui.css">
 </head>
 
 <body>
-    <div id="menu"></div>
-    <div id="main"></div>
+
+    <div id="swagger-ui"></div>
+
+    <script src="https://unpkg.com/swagger-ui-dist@3.12.1/swagger-ui-standalone-preset.js"></script>
+    <script src="https://unpkg.com/swagger-ui-dist@3.12.1/swagger-ui-bundle.js"></script>
+
+    <script>
+        window.onload = function () {
+            // Build a system
+            const ui = SwaggerUIBundle({
+                urls: [
+                    { name: 'A', url: 'http://petstore.swagger.io/v2/swagger.json' },
+                    { name: 'B', url: 'http://petstore.swagger.io/v2/swagger.json' },
+                    { name: 'C', url: 'http://petstore.swagger.io/v2/swagger.json' },
+                ],
+                dom_id: '#swagger-ui',
+                deepLinking: true,
+                presets: [
+                    SwaggerUIBundle.presets.apis,
+                    SwaggerUIStandalonePreset
+                ],
+                plugins: [
+                    SwaggerUIBundle.plugins.DownloadUrl
+                ],
+                layout: "StandaloneLayout",
+            })
+            window.ui = ui
+        }
+    </script>
 </body>
+
 </html>
